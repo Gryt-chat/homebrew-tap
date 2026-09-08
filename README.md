@@ -1,11 +1,18 @@
 # Gryt Chat, for Homebrew
 
 ```bash
-brew install --cask Gryt-chat/tap/gryt-chat
+brew tap Gryt-chat/tap
+brew trust Gryt-chat/tap
+brew install --cask gryt-chat
 ```
 
-Apple silicon only. There is no Intel build, so the cask refuses rather than
-installing something that cannot run. macOS 12 or later.
+The `brew trust` line is not optional. Homebrew refuses to load a cask from a
+third-party tap until you say you trust it, and the refusal reports itself as
+`invalid syntax in tap!`, which reads like a broken package rather than a
+permission you have not granted yet.
+
+Apple silicon only for now, macOS 12 or later. There is no Intel build yet, so
+the cask refuses on Intel rather than installing something that cannot run.
 
 The app updates itself, so `brew upgrade` leaves it alone.
 
