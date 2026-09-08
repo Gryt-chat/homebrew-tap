@@ -1,10 +1,15 @@
-# version and sha256 are placeholders. publish-homebrew.yml rewrites both.
+# version and both sha256 values are placeholders. publish-homebrew.yml
+# rewrites all three.
 cask "gryt-chat" do
-  version "1.9.24"
-  sha256 "035d62250bddffa077651f5e3a68f902a3183b3db37976fcbd256912670f88ee"
+  arch arm: "arm64", intel: "x64"
 
-  # Slim, matching what the site hands over by default.
-  url "https://github.com/Gryt-chat/gryt/releases/download/v#{version}/Gryt-Chat-#{version}-mac-arm64-slim.dmg"
+  version "1.10.1"
+  # Two different placeholders because `brew style` rejects identical per-arch
+  # checksums, and because a leftover one is then obvious in the published cask.
+  sha256 arm:   "64dad5580c40ff6977125db5f6f7041e5e3cc29159f1208b1987d0fa4034447e",
+         intel: "6e9a731e12eaab398d9424532e791fccd9871b3027082d325db6a211c735a2d9"
+
+  url "https://github.com/Gryt-chat/gryt/releases/download/v#{version}/Gryt-Chat-#{version}-mac-#{arch}.dmg"
   name "Gryt Chat"
   desc "Real-time voice chat"
   homepage "https://gryt.chat/"
@@ -17,8 +22,6 @@ cask "gryt-chat" do
   # Without this, brew upgrade reinstalls over a copy electron-updater has
   # already moved on.
   auto_updates true
-  # No Intel artefact is built, and the DMG has no x86_64 slice for Rosetta.
-  depends_on arch: :arm64
   depends_on macos: :monterey
 
   app "Gryt Chat.app"
