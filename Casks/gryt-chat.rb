@@ -4,8 +4,7 @@ cask "gryt-chat" do
   sha256 "035d62250bddffa077651f5e3a68f902a3183b3db37976fcbd256912670f88ee"
 
   # Slim, matching what the site hands over by default.
-  url "https://github.com/Gryt-chat/gryt/releases/download/v#{version}/Gryt-Chat-#{version}-mac-arm64-slim.dmg",
-      verified: "github.com/Gryt-chat/gryt/"
+  url "https://github.com/Gryt-chat/gryt/releases/download/v#{version}/Gryt-Chat-#{version}-mac-arm64-slim.dmg"
   name "Gryt Chat"
   desc "Real-time voice chat"
   homepage "https://gryt.chat/"
