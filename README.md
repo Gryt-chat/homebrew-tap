@@ -1,15 +1,16 @@
 # Gryt Chat, for Homebrew
 
 ```bash
-brew tap Gryt-chat/tap
 brew trust Gryt-chat/tap
+brew tap Gryt-chat/tap
 brew install --cask gryt-chat
 ```
 
-The `brew trust` line is not optional. Homebrew refuses to load a cask from a
-third-party tap until you say you trust it, and the refusal reports itself as
-`invalid syntax in tap!`, which reads like a broken package rather than a
-permission you have not granted yet.
+Trust comes first, and that order matters. Homebrew refuses to load a cask from
+a third-party tap until you say you trust it, and `brew tap` is what tries to
+load it — so running tap first fails with `invalid syntax in tap!`, which reads
+like a broken package rather than a permission you have not granted yet, and
+leaves the tap not added at all.
 
 Apple silicon only for now, macOS 12 or later. There is no Intel build yet, so
 the cask refuses on Intel rather than installing something that cannot run.
