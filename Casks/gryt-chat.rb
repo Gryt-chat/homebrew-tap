@@ -3,11 +3,11 @@
 cask "gryt-chat" do
   arch arm: "arm64", intel: "x64"
 
-  version "1.13.33"
+  version "1.13.34"
   # Two different placeholders because `brew style` rejects identical per-arch
   # checksums, and because a leftover one is then obvious in the published cask.
-  sha256 arm:   "1e5b5c32c25892606307dfa26e1179bb04eb5f9558ab083abcd7f563e14d30a9",
-         intel: "0fb0586b905bcba6527aaca3b58d26af58a036039a73694b272c1a792ee73083"
+  sha256 arm:   "7bbb72a01f64478a1c8d2c44ab24ad99dd9b8e3a15b07c1b6d1824269b525570",
+         intel: "3cee6642c137fc5790aad2cf4b403fa093b7eb119ed7ebc2687bf8a5ed8ce110"
 
   url "https://github.com/Gryt-chat/gryt/releases/download/v#{version}/Gryt-Chat-#{version}-mac-#{arch}.dmg"
   name "Gryt Chat"
